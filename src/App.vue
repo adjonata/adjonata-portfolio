@@ -1,30 +1,44 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <!-- Head Meta-tags -->
+  <Teleport to="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </Teleport>
+
+  <!-- Body content -->
+  <Header
+    :count="{
+      knowledges: state.knowledges.length,
+      projects: state.projects.length,
+    }"
+  />
+  <RouterView />
+  <Footer />
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { Header, Footer } from '@/components/layout'
+import { useStore } from '@/store'
 
-#nav {
-  padding: 30px;
+export default defineComponent({
+  components: { Header, Footer },
+  setup() {
+    const store = useStore()
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+    store.dispatch('getInformations')
 
-    &.router-link-exact-active {
-      color: #42b983;
+    return {
+      state: store.state,
     }
-  }
-}
+  },
+})
+</script>
+
+<style lang="scss">
+@import '~/src/assets/global.scss';
 </style>
