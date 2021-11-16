@@ -1,10 +1,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Header, Footer } from '@/components/layout'
+import { Header } from '@/components/layout'
 import { useStore } from '@/store'
 
 export default defineComponent({
-  components: { Header, Footer },
+  components: { Header },
   setup() {
     const store = useStore()
 
@@ -40,14 +40,13 @@ export default defineComponent({
     }"
   />
   <RouterView class="router-view" />
-  <Footer />
 </template>
 
 <style lang="scss">
 @import '~/src/assets/global.scss';
 
 .router-view {
-  width: $fullhd;
+  width: 1200px;
   max-width: 95%;
 }
 </style>
