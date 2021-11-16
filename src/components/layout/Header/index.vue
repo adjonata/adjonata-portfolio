@@ -1,70 +1,39 @@
 <script lang="ts">
-import { defineComponent, PropType, ref } from 'vue'
-import Counter from './Counter.vue'
-
-interface CountProp {
-  projects: number
-  knowledges: number
-}
+import { defineComponent } from 'vue'
+import HeaderImage from './HeaderImage.vue'
+import HeaderContent from './HeaderContent.vue'
 
 export default defineComponent({
-  components: { Counter },
-  props: {
-    count: {
-      type: Object as PropType<CountProp>,
-      required: true,
-    },
-  },
+  components: { HeaderImage, HeaderContent },
   setup() {
-    const [title, githubUser] = [
-      ref('A credibilidade é consequência do método'),
-      ref('adjonata'),
-    ]
-
-    return { title, githubUser }
+    return {}
   },
 })
 </script>
 
 <template>
   <header class="header">
-    <div class="header__content">
-      <h1 class="header__content-title">{{ title }}</h1>
-      <div class="header__content-items">
-        <div>{{ yearsOld }} Anos</div>
-        <Counter
-          :count="count.knowledges"
-          title="Conhecimentos"
-          icon="account_balance"
-        />
-        <Counter :count="count.projects" title="Projetos" icon="dashboard" />
-      </div>
-    </div>
-
-    <div class="header__image">
-      <img :src="`https://github.com/${githubUser}.png`" alt="Github Image" />
-    </div>
+    <HeaderContent />
+    <HeaderImage />
   </header>
 </template>
 
-<style scoped lang="scss">
-@import '~/src/assets/variables.scss';
+<style lang="scss">
+@import '~/src/assets/variables.scss', '~/src/assets/flex.scss';
 
 .header {
+  width: 1300px;
+  max-width: 100%;
+  padding: 60px 30px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 30px;
-
-  &__content {
-    display: flex;
+  @media (max-width: $fullhd) {
     flex-direction: column;
-    justify-content: center;
-
-    &-items {
-      display: flex;
-    }
+    justify-content: flex-start;
+    padding: 60px 0;
   }
 }
 </style>
