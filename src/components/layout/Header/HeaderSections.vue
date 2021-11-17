@@ -5,6 +5,7 @@
       :key="'section_' + sectionIndex"
       :title="section.title"
       :icon="section.icon"
+      @on-navigate="scrollTo(section.id)"
     />
   </div>
 </template>
@@ -17,7 +18,13 @@ import sections from '@/utils/sections'
 export default defineComponent({
   components: { HeaderLink },
   setup() {
-    return { sections }
+    function scrollTo(id: string) {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }
+
+    return { sections, scrollTo }
   },
 })
 </script>
