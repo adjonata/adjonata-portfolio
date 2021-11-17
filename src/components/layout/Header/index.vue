@@ -24,7 +24,7 @@ export default defineComponent({
 .header {
   width: 1300px;
   max-width: 100%;
-  padding: 60px 30px;
+  padding: 90px 30px 60px;
 
   display: flex;
   justify-content: space-between;
@@ -33,7 +33,7 @@ export default defineComponent({
   @media (max-width: $fullhd) {
     flex-direction: column;
     justify-content: flex-start;
-    padding: 60px 0;
+    padding: 60px 0 0;
   }
 }
 </style>

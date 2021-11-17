@@ -36,6 +36,7 @@ export default defineComponent({
   padding: 15px;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: 5px 5px 0 0 $grey-light;
 
   @media (min-width: $fullhd) {
     min-width: 140px;

@@ -23,7 +23,7 @@ export default defineComponent({
 
   img {
     width: 350px;
-    border: solid 10px $grey-dark;
+    border: solid 10px $grey-light;
     border-radius: 10px;
     box-shadow: 10px 10px 0 0 $black-light;
   }
