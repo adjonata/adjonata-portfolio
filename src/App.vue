@@ -10,9 +10,7 @@ export default defineComponent({
 
     store.dispatch('getInformations')
 
-    return {
-      state: store.state,
-    }
+    return {}
   },
 })
 </script>
@@ -33,12 +31,7 @@ export default defineComponent({
   </Teleport>
 
   <!-- Body content -->
-  <Header
-    :count="{
-      knowledges: state.knowledges.length,
-      projects: state.projects.length,
-    }"
-  />
+  <Header />
   <RouterView class="router-view" />
 </template>
 
