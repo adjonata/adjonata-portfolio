@@ -6,14 +6,30 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 import HeaderSections from './HeaderSections.vue'
+import useScreenSize from '@/mixins/useScreenSize'
 
 export default defineComponent({
   components: { HeaderSections },
   setup() {
-    const title = ref('A credibilidade é consequência do método')
-    return { title }
+    const { isMobile, clientWidth } = useScreenSize()
+
+    const title = ref<string>('')
+
+    function checkScreen() {
+      if (isMobile.value) {
+        title.value = 'Seja bem-vindo!'
+      } else {
+        title.value = 'A credibilidade é consequência do método'
+      }
+    }
+
+    checkScreen()
+
+    watch(clientWidth, checkScreen)
+
+    return { title, clientWidth }
   },
 })
 </script>
@@ -35,7 +51,7 @@ export default defineComponent({
   &__title {
     width: 650px;
     max-width: 100%;
-    font-size: 40px;
+    font-size: 50px;
     letter-spacing: 1px;
     color: $white-light;
 
@@ -44,7 +60,7 @@ export default defineComponent({
       font-size: 26px;
       text-align: center;
       margin-top: 30px;
-      color: $grey-light;
+      color: $white-dark;
     }
   }
 }
