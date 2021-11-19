@@ -30,7 +30,7 @@ export default defineComponent({
 
   @media (max-width: $fullhd) {
     img {
-      max-width: 60%;
+      max-width: 70%;
     }
     order: 1;
   }
