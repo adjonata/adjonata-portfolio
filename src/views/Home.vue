@@ -1,11 +1,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { AboutSection, KnowledgesSection } from '@/components/sections'
+import {
+  AboutSection,
+  KnowledgesSection,
+  ProjectsSection,
+} from '@/components/sections'
 import { useStore } from '@/store'
 
 export default defineComponent({
   name: 'Home',
-  components: { AboutSection, KnowledgesSection },
+  components: { AboutSection, KnowledgesSection, ProjectsSection },
   setup() {
     const store = useStore()
 
@@ -20,6 +24,7 @@ export default defineComponent({
   <div class="home">
     <AboutSection :about="state.about.description" />
     <KnowledgesSection :knowledges="state.knowledges" />
+    <ProjectsSection :projects="state.projects" />
   </div>
 </template>
 
