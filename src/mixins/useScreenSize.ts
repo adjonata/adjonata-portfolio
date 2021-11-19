@@ -13,7 +13,6 @@ const useScreenSize = (): UseScreenSizes => {
 
   function onResize() {
     clientWidth.value = window.innerWidth
-    console.log('mudou', window.innerWidth)
   }
 
   window.addEventListener('resize', onResize)
