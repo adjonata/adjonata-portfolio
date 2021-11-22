@@ -36,7 +36,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <article class="projects-item" :style="{ borderBottomColor: color }">
+  <article class="projects-item">
     <div v-if="spotlight" class="projects-item__spotlight">
       <div />
     </div>
@@ -63,7 +63,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: solid 3px transparent;
+  border-bottom: solid 6px $black-light-2;
 
   @media (min-width: $tablet) {
     width: 24%;
@@ -102,6 +102,7 @@ export default defineComponent({
       font-weight: 600;
       letter-spacing: 0.8px;
       font-size: 20px;
+      text-align: center;
       @media (max-width: $mobile) {
         font-size: 15px;
       }
@@ -114,7 +115,7 @@ export default defineComponent({
       line-height: 22px;
       margin-top: 15px;
       text-align: center;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
   }
 }

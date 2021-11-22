@@ -1,10 +1,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Header } from '@/components/layout'
+import { Header, FloatingButton } from '@/components/layout'
 import { useStore } from '@/store'
 
 export default defineComponent({
-  components: { Header },
+  components: { Header, FloatingButton },
   setup() {
     const store = useStore()
 
@@ -31,6 +31,7 @@ export default defineComponent({
   </Teleport>
 
   <!-- Body content -->
+  <FloatingButton />
   <Header />
   <RouterView class="router-view" />
 </template>
