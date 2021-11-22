@@ -22,9 +22,9 @@ export default defineComponent({
 
 <template>
   <div class="home">
-    <AboutSection :about="state.about.description" />
-    <KnowledgesSection :knowledges="state.knowledges" />
-    <ProjectsSection :projects="state.projects" />
+    <AboutSection v-if="state.loaded" :about="state.about.description" />
+    <KnowledgesSection v-if="state.loaded" :knowledges="state.knowledges" />
+    <ProjectsSection v-if="state.loaded" :projects="state.projects" />
   </div>
 </template>
 
