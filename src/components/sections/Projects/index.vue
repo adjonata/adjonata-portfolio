@@ -50,13 +50,7 @@ export default defineComponent({
     &-list {
       display: flex;
       flex-wrap: wrap;
-
-      @media (min-width: $tablet) {
-        justify-content: space-between;
-      }
-      @media (max-width: $mobile) {
-        justify-content: space-between;
-      }
+      justify-content: flex-start;
     }
   }
 }
