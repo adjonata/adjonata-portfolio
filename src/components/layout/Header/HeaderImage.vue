@@ -10,7 +10,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   setup() {
     const headerImage =
-      'https://admin.welcometoalex.space/_nuxt/img/boy.b8a8002.svg'
+      'https://raw.githubusercontent.com/adjonata/adjonata.dashboard/01136e867cccd14f6a7da8ec1bb1ae828f1ce8d8/assets/boy.svg'
     return { headerImage }
   },
 })
