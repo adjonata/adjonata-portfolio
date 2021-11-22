@@ -34,8 +34,9 @@ export default defineComponent({
 
 .knowledges-item {
   background: $black-light;
+  border-radius: $items-radius;
+  box-shadow: $shadow;
   padding: 30px;
-  border-radius: 10px;
   margin: 15px 30px 15px 0;
 
   display: flex;
