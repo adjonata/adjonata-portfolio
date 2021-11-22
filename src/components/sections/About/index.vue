@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   props: {
@@ -9,7 +9,10 @@ export default defineComponent({
     },
   },
   setup() {
-    return {}
+    const githubUser = 'adjonata'
+    const githubUserImage = ref(`https://github.com/${githubUser}.png`)
+
+    return { githubUserImage }
   },
 })
 </script>
@@ -22,6 +25,9 @@ export default defineComponent({
     </h3>
 
     <div class="about__content section-content">
+      <div class="about__content-image">
+        <img :src="githubUserImage" alt="User image" />
+      </div>
       <p v-text="about" />
     </div>
   </section>
@@ -33,8 +39,32 @@ export default defineComponent({
 .about {
   &__content {
     background: $black-light;
+    border-radius: $items-radius;
+    box-shadow: $shadow;
     padding: 30px;
-    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+
+    &-image {
+      padding-right: 40px;
+
+      @media (max-width: $mobile) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-right: 0;
+      }
+
+      img {
+        width: 230px;
+        border-radius: $items-radius;
+      }
+    }
 
     p {
       white-space: pre-wrap;
@@ -47,6 +77,7 @@ export default defineComponent({
         font-size: 15px;
         line-height: 26px;
         letter-spacing: 0.3px;
+        margin-top: 30px;
       }
     }
   }
