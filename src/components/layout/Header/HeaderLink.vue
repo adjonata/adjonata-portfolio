@@ -12,11 +12,6 @@ export default defineComponent({
       required: true,
       default: 'help',
     },
-    color: {
-      type: String,
-      required: true,
-      default: 'transparent',
-    },
   },
   setup() {
     return {}
@@ -27,7 +22,7 @@ export default defineComponent({
 
 <template>
   <article class="header-link" @click="$emit('on-navigate')">
-    <span class="material-icons" :style="{ color }">{{ icon }}</span>
+    <span class="material-icons">{{ icon }}</span>
     <h3>{{ title }}</h3>
   </article>
 </template>
