@@ -13,8 +13,8 @@ export default defineComponent({
 
 <template>
   <header class="header">
-    <HeaderContent />
     <HeaderImage />
+    <HeaderContent />
   </header>
 </template>
 

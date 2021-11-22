@@ -5,6 +5,7 @@
       :key="'section_' + sectionIndex"
       :title="section.title"
       :icon="section.icon"
+      :color="section.color"
       @on-navigate="scrollTo(section.id)"
     />
   </div>

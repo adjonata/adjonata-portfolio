@@ -12,6 +12,11 @@ export default defineComponent({
       required: true,
       default: 'help',
     },
+    color: {
+      type: String,
+      required: true,
+      default: 'transparent',
+    },
   },
   setup() {
     return {}
@@ -22,7 +27,7 @@ export default defineComponent({
 
 <template>
   <article class="header-link" @click="$emit('on-navigate')">
-    <span class="material-icons">{{ icon }}</span>
+    <span class="material-icons" :style="{ color }">{{ icon }}</span>
     <h3>{{ title }}</h3>
   </article>
 </template>
@@ -34,7 +39,7 @@ export default defineComponent({
   background-color: $black-light;
   color: $white-dark;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: $items-radius;
   cursor: pointer;
   box-shadow: 5px 5px 0 0 $grey-light;
 
@@ -46,7 +51,7 @@ export default defineComponent({
   align-items: center;
 
   span {
-    font-size: 20px;
+    font-size: 25px;
     margin-right: 5px;
   }
 

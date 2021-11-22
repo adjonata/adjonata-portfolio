@@ -1,16 +1,17 @@
 <template>
   <div class="header-image">
-    <img :src="`https://github.com/${githubUser}.png`" alt="Github Image" />
+    <img :src="headerImage" alt="Header Image" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   setup() {
-    const githubUser = ref('adjonata')
-    return { githubUser }
+    const headerImage =
+      'https://admin.welcometoalex.space/_nuxt/img/boy.b8a8002.svg'
+    return { headerImage }
   },
 })
 </script>
@@ -23,9 +24,6 @@ export default defineComponent({
 
   img {
     width: 350px;
-    border: solid 10px $grey-light;
-    border-radius: 10px;
-    box-shadow: 10px 10px 0 0 $black-light;
   }
 
   @media (max-width: $fullhd) {

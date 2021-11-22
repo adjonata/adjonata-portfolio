@@ -1,6 +1,9 @@
 <template>
   <div class="header-content">
-    <h1 class="header-content__title">{{ title }}</h1>
+    <h1 class="header-content__title">
+      {{ title }}
+      <span v-if="!isMobile">- {{ author }}</span>
+    </h1>
     <HeaderSections />
   </div>
 </template>
@@ -16,12 +19,14 @@ export default defineComponent({
     const { isMobile, clientWidth } = useScreenSize()
 
     const title = ref<string>('')
+    const author = ref<string>('')
 
     function checkScreen() {
       if (isMobile.value) {
         title.value = 'Seja bem-vindo!'
       } else {
         title.value = 'A credibilidade é consequência do método'
+        author.value = 'Carl Sagan'
       }
     }
 
@@ -29,7 +34,7 @@ export default defineComponent({
 
     watch(clientWidth, checkScreen)
 
-    return { title, clientWidth }
+    return { title, author, isMobile }
   },
 })
 </script>
@@ -42,25 +47,35 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 80px;
 
   @media (max-width: $fullhd) {
     order: 2;
     align-items: center;
+    padding-left: 0;
   }
 
   &__title {
-    width: 650px;
+    width: 750px;
     max-width: 100%;
     font-size: 50px;
     letter-spacing: 1px;
     color: $white-light;
+    font-weight: 300;
 
     @media (max-width: $fullhd) {
       width: 90%;
-      font-size: 26px;
+      font-size: 30px;
       text-align: center;
       margin-top: 30px;
       color: $white-dark;
+    }
+
+    span {
+      font-weight: 300;
+      font-size: 33px;
+      text-transform: uppercase;
+      color: $grey-blue-light;
     }
   }
 }
