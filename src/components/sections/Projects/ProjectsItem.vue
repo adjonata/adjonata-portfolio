@@ -81,6 +81,9 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: $mobile) {
+      padding: 30px 0;
+    }
 
     &-image {
       height: 130px;
