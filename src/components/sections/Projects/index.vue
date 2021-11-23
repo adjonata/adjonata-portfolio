@@ -44,6 +44,7 @@ export default defineComponent({
 @import '~/src/assets/variables';
 
 .projects {
+  padding-bottom: 10px;
   &__content {
     border-radius: 10px;
 
