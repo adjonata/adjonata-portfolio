@@ -13,6 +13,12 @@ const routes: Section[] = [
     id: 'about',
   },
   {
+    title: 'Links úteis',
+    icon: 'link',
+    color: '#cc314b',
+    id: 'links',
+  },
+  {
     title: 'Conhecimentos',
     icon: 'account_balance',
     color: '#ccb231',
@@ -23,12 +29,6 @@ const routes: Section[] = [
     icon: 'dashboard',
     color: '#6c31cc',
     id: 'projects',
-  },
-  {
-    title: 'Contatos',
-    icon: 'phone',
-    color: '#cc314b',
-    id: 'social',
   },
 ]
 

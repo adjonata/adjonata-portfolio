@@ -4,12 +4,18 @@ import {
   AboutSection,
   KnowledgesSection,
   ProjectsSection,
+  SocialSection,
 } from '@/components/sections'
 import { useStore } from '@/store'
 
 export default defineComponent({
   name: 'Home',
-  components: { AboutSection, KnowledgesSection, ProjectsSection },
+  components: {
+    AboutSection,
+    KnowledgesSection,
+    ProjectsSection,
+    SocialSection,
+  },
   setup() {
     const store = useStore()
 
@@ -21,10 +27,11 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="home">
-    <AboutSection v-if="state.loaded" :about="state.about.description" />
-    <KnowledgesSection v-if="state.loaded" :knowledges="state.knowledges" />
-    <ProjectsSection v-if="state.loaded" :projects="state.projects" />
+  <div class="home" v-if="state.loaded">
+    <AboutSection :about="state.about.description" />
+    <SocialSection :social="state.social" />
+    <KnowledgesSection :knowledges="state.knowledges" />
+    <ProjectsSection :projects="state.projects" />
   </div>
 </template>
 
