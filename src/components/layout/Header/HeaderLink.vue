@@ -48,6 +48,7 @@ export default defineComponent({
   span {
     font-size: 25px;
     margin-right: 5px;
+    color: $blue-light;
   }
 
   h3 {
