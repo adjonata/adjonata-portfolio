@@ -1,16 +1,18 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Header, FloatingButton } from '@/components/layout'
+import { Header, Footer, FloatingButton } from '@/components/layout'
 import { useStore } from '@/store'
 
 export default defineComponent({
-  components: { Header, FloatingButton },
+  components: { Header, Footer, FloatingButton },
   setup() {
     const store = useStore()
 
     store.dispatch('getInformations')
 
-    return {}
+    return {
+      state: store.state,
+    }
   },
 })
 </script>
@@ -34,6 +36,7 @@ export default defineComponent({
   <FloatingButton />
   <Header />
   <RouterView class="router-view" />
+  <Footer v-if="state.loaded" />
 </template>
 
 <style lang="scss">
