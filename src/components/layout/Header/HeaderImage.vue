@@ -9,8 +9,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   setup() {
-    const headerImage =
-      'https://raw.githubusercontent.com/adjonata/adjonata.dashboard/01136e867cccd14f6a7da8ec1bb1ae828f1ce8d8/assets/boy.svg'
+    const headerImage = 'https://github.com/adjonata.png'
     return { headerImage }
   },
 })
@@ -24,6 +23,9 @@ export default defineComponent({
 
   img {
     width: 350px;
+    border-radius: $items-radius;
+    border: solid 5px $grey-dark;
+    box-shadow: 5px 5px 0 0 $black-light;
   }
 
   @media (max-width: $fullhd) {
