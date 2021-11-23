@@ -68,6 +68,7 @@ export default defineComponent({
       font-size: 30px;
       text-align: center;
       margin-top: 30px;
+      font-weight: 600;
       color: $white-dark;
     }
 

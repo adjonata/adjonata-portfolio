@@ -36,7 +36,7 @@ export default defineComponent({
   background: $black-light;
   border-radius: $items-radius;
   box-shadow: $shadow;
-  padding: 30px;
+  padding: 25px 20px;
   margin: 15px 30px 15px 0;
 
   display: flex;
@@ -45,16 +45,16 @@ export default defineComponent({
   justify-content: space-between;
 
   @media (max-width: $mobile) {
-    width: 48%;
+    width: 30%;
     margin: 15px 0;
     padding: 20px;
-    min-height: 193px;
+    /* min-height: 193px; */
   }
 
   img {
     width: 100px;
     @media (max-width: $mobile) {
-      width: 90px;
+      width: 60px;
     }
   }
 
@@ -65,7 +65,7 @@ export default defineComponent({
     font-weight: 600;
     letter-spacing: 0.3px;
     @media (max-width: $mobile) {
-      font-size: 15px;
+      font-size: 13px;
     }
   }
 }
