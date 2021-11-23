@@ -25,9 +25,6 @@ export default defineComponent({
     </h3>
 
     <div class="about__content section-content">
-      <div class="about__content-image">
-        <img :src="githubUserImage" alt="User image" />
-      </div>
       <p v-text="about" />
     </div>
   </section>
@@ -48,22 +45,6 @@ export default defineComponent({
 
     @media (max-width: $mobile) {
       flex-direction: column;
-    }
-
-    &-image {
-      padding-right: 40px;
-
-      @media (max-width: $mobile) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        padding-right: 0;
-      }
-
-      img {
-        width: 230px;
-        border-radius: $items-radius;
-      }
     }
 
     p {
