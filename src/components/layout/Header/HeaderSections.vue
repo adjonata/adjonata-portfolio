@@ -12,20 +12,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import HeaderLink from './HeaderLink.vue'
-import sections from '@/utils/sections'
+import sections, { Section } from '@/utils/sections'
 
 export default defineComponent({
   components: { HeaderLink },
-  setup() {
+  props: {
+    sections: {
+      type: Array as PropType<Section[]>,
+      default: () => sections,
+    },
+  },
+  setup(props, { emit }) {
     function scrollTo(id: string) {
       document.getElementById(id)?.scrollIntoView({
         behavior: 'smooth',
       })
+      emit('scroll-to', id)
     }
 
-    return { sections, scrollTo }
+    return { scrollTo }
   },
 })
 </script>

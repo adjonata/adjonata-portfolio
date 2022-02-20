@@ -1,6 +1,18 @@
 <template>
-  <footer class="footer">Até mais 👋</footer>
+  <footer class="footer">{{ message }}</footer>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
+    return {
+      message: 'Até mais 👋',
+    }
+  },
+})
+</script>
 
 <style lang="scss" scoped>
 @import '~/src/assets/variables';

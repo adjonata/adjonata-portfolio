@@ -1,3 +1,10 @@
+<template>
+  <article class="header-link" @click="$emit('on-navigate')">
+    <span class="header-link__icon material-icons" v-if="icon">{{ icon }}</span>
+    <h3 class="header-link__title" v-if="title">{{ title }}</h3>
+  </article>
+</template>
+
 <script lang="ts">
 import { defineComponent } from 'vue'
 
@@ -5,11 +12,9 @@ export default defineComponent({
   props: {
     title: {
       type: String,
-      required: true,
     },
     icon: {
       type: String,
-      required: true,
       default: 'help',
     },
   },
@@ -19,13 +24,6 @@ export default defineComponent({
   emits: ['on-navigate'],
 })
 </script>
-
-<template>
-  <article class="header-link" @click="$emit('on-navigate')">
-    <span class="material-icons">{{ icon }}</span>
-    <h3>{{ title }}</h3>
-  </article>
-</template>
 
 <style scoped lang="scss">
 @import '~/src/assets/variables.scss';

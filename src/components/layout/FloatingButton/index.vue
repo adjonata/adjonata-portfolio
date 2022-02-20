@@ -8,7 +8,7 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  setup() {
+  setup(_props, { emit }) {
     const show = ref<boolean>(false)
 
     function changeScroll() {
@@ -25,6 +25,7 @@ export default defineComponent({
 
     function resetScroll() {
       window.scrollTo({ top: 0, behavior: 'smooth' })
+      emit('reset-scroll')
     }
 
     return { show, resetScroll }
