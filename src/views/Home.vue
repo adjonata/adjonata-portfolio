@@ -28,7 +28,7 @@ export default defineComponent({
 
 <template>
   <div class="home" v-if="state.loaded">
-    <AboutSection :about="state.about.description" />
+    <AboutSection :about="state.about ? state.about.description : 'Sem descrição...'" />
     <SocialSection :social="state.social" />
     <KnowledgesSection :knowledges="state.knowledges" />
     <ProjectsSection :projects="state.projects" />
