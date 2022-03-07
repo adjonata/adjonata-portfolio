@@ -36,6 +36,8 @@ export const useInformationsStore = defineStore({
         this.projects = projects
         this.social = social
         this.loaded = true
+
+        await new Promise((resolve) => setTimeout(() => resolve(true), 1000))
       } catch (error) {
         console.log('Erro ao buscar informações', error)
         this.loaded = false
