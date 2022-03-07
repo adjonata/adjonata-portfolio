@@ -41,6 +41,7 @@ export interface Social {
 export interface Multi {
   about: About | null
   knowledges: Knowledge[]
+  experiences: Experience[]
   projects: Project[]
   social: Social[]
 }
