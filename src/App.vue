@@ -36,7 +36,7 @@ onMounted(async () => {
   </Teleport>
 
   <!-- Body content -->
-  <div v-if="!$state.loaded" class="view">
+  <div v-if="$state.loaded" class="view">
     <FloatingButton />
     <Header />
     <AboutSection :about="$state.about?.description || ''" />
