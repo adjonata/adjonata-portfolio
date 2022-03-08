@@ -47,7 +47,6 @@ defineProps<Props>()
         font-size: 15px;
         line-height: 26px;
         letter-spacing: 0.3px;
-        margin-top: 30px;
       }
     }
   }

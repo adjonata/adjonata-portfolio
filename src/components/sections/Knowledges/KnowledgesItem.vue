@@ -33,7 +33,7 @@ defineProps<Props>()
 
   @media (max-width: $mobile) {
     width: 30%;
-    margin: 15px 0;
+    margin: 0 0 15px;
     padding: 20px;
     /* min-height: 193px; */
   }

@@ -7,6 +7,10 @@
   padding-top: 15px;
   padding-bottom: 60px;
 
+  @media (max-width: $mobile) {
+    padding-bottom: 30px;
+  }
+
   &-title {
     width: 300px;
     max-width: 100%;

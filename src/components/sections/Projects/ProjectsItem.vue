@@ -40,15 +40,21 @@ defineProps<Props>()
   align-items: center;
   border-bottom: solid 6px $black-light-2;
 
-  @media (min-width: $tablet) {
-    width: 24%;
-    margin: 15px 0.5%;
-  }
-
   @media (max-width: $mobile) {
     width: 100%;
-    padding: 20px;
+    padding: 5px 30px;
     min-height: 193px;
+  }
+
+  @media (min-width: $tablet) and (max-width: $fullhd) {
+    width: 40%;
+    margin: 15px 2.5%;
+    padding: 10px 0;
+  }
+
+  @media (min-width: $fullhd) {
+    width: 24%;
+    margin: 15px 0.5%;
   }
 
   &__content {
@@ -68,7 +74,7 @@ defineProps<Props>()
       img {
         width: 115px;
         @media (max-width: $mobile) {
-          width: 90px;
+          width: 80px;
         }
       }
     }
