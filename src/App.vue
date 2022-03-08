@@ -35,18 +35,20 @@ onMounted(async () => {
     />
   </Teleport>
 
-  <!-- Body content -->
-  <div v-if="$state.loaded" class="view">
-    <FloatingButton />
-    <Header />
-    <AboutSection :about="$state.about?.description || ''" />
-    <KnowledgesSection :knowledges="$state.knowledges || []" />
-    <ProjectsSection :projects="$state.projects || []" />
-    <SocialSection :socials="$state.social || []" />
-    <Footer />
-  </div>
+  <Transition name="fade">
+    <!-- Body content -->
+    <div v-if="$state.loaded" class="view">
+      <FloatingButton />
+      <Header />
+      <AboutSection :about="$state.about?.description || ''" />
+      <KnowledgesSection :knowledges="$state.knowledges || []" />
+      <ProjectsSection :projects="$state.projects || []" />
+      <SocialSection :socials="$state.social || []" />
+      <Footer />
+    </div>
 
-  <Loading v-else />
+    <Loading v-else />
+  </Transition>
 </template>
 
 <style lang="scss">
@@ -54,6 +56,6 @@ onMounted(async () => {
 
 .view {
   width: 1200px;
-  max-width: 95%;
+  max-width: 80%;
 }
 </style>

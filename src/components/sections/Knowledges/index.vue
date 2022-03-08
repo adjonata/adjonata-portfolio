@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { Knowledge } from '@/types'
-import { toRefs } from 'vue'
-
+import { computed, ref } from 'vue'
 import KnowledgesItem from './KnowledgesItem.vue'
+import Expandable from '@/components/common/Expandable.vue'
 
 interface Props {
   knowledges: Knowledge[]
@@ -10,7 +10,15 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const { knowledges } = toRefs(props)
+const showAll = ref(false)
+
+const filteredKnowledges = computed<Knowledge[]>(() => {
+  if (!showAll.value) {
+    return props.knowledges.slice(0, 9)
+  } else {
+    return props.knowledges
+  }
+})
 </script>
 
 <template>
@@ -22,14 +30,17 @@ const { knowledges } = toRefs(props)
 
     <div class="knowledges__content section-content">
       <div class="knowledges__content-list">
-        <KnowledgesItem
-          v-for="knowledge in knowledges"
-          :key="knowledge.title"
-          :title="knowledge.title"
-          :image="knowledge.image"
-          :link="knowledge.link"
-        />
+        <TransitionGroup name="fade-in">
+          <KnowledgesItem
+            v-for="knowledge in filteredKnowledges"
+            :key="knowledge.title"
+            :title="knowledge.title"
+            :image="knowledge.image"
+            :link="knowledge.link"
+          />
+        </TransitionGroup>
       </div>
+      <Expandable :value="showAll" @input="showAll = $event" />
     </div>
   </section>
 </template>
@@ -46,7 +57,7 @@ const { knowledges } = toRefs(props)
       flex-wrap: wrap;
 
       @media (max-width: $mobile) {
-        justify-content: space-between;
+        justify-content: space-around;
       }
     }
   }

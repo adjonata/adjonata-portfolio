@@ -2,12 +2,24 @@
 import type { Project } from '@/types'
 
 import ProjectsItem from './ProjectsItem.vue'
+import Expandable from '@/components/common/Expandable.vue'
+import { computed, ref } from 'vue'
 
 interface Props {
   projects: Project[]
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const showAll = ref(false)
+
+const filteredProjects = computed<Project[]>(() => {
+  if (!showAll.value) {
+    return props.projects.slice(0, 3)
+  } else {
+    return props.projects
+  }
+})
 </script>
 
 <template>
@@ -19,15 +31,18 @@ defineProps<Props>()
 
     <div class="projects__content section-content">
       <div class="projects__content-list">
-        <ProjectsItem
-          v-for="(project, projectIndex) in projects"
-          :key="'project_' + projectIndex"
-          :title="project.title"
-          :description="project.description"
-          :image="project.image"
-          :link="project.link"
-          :spotlight="project.spotlight"
-        />
+        <TransitionGroup name="fade-in">
+          <ProjectsItem
+            v-for="(project, projectIndex) in filteredProjects"
+            :key="'project_' + projectIndex"
+            :title="project.title"
+            :description="project.description"
+            :image="project.image"
+            :link="project.link"
+            :spotlight="project.spotlight"
+          />
+        </TransitionGroup>
+        <Expandable :value="showAll" @input="showAll = $event" />
       </div>
     </div>
   </section>
@@ -45,6 +60,10 @@ defineProps<Props>()
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
+
+      @media (max-width: $mobile) {
+        justify-content: center;
+      }
     }
   }
 }
