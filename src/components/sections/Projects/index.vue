@@ -4,6 +4,7 @@ import type { Project } from '@/types'
 import ProjectsItem from './ProjectsItem.vue'
 import Expandable from '@/components/common/Expandable.vue'
 import { computed, ref } from 'vue'
+import { useScreenSize } from '@/hooks'
 
 interface Props {
   projects: Project[]
@@ -11,7 +12,9 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const showAll = ref(false)
+const { isMobile, isTablet } = useScreenSize()
+
+const showAll = ref(isMobile || isTablet ? false : true)
 
 const filteredProjects = computed<Project[]>(() => {
   if (!showAll.value) {

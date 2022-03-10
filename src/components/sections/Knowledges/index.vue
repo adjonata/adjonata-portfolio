@@ -3,6 +3,7 @@ import type { Knowledge } from '@/types'
 import { computed, ref } from 'vue'
 import KnowledgesItem from './KnowledgesItem.vue'
 import Expandable from '@/components/common/Expandable.vue'
+import { useScreenSize } from '@/hooks'
 
 interface Props {
   knowledges: Knowledge[]
@@ -10,7 +11,9 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const showAll = ref(false)
+const { isMobile, isTablet } = useScreenSize()
+
+const showAll = ref(isMobile || isTablet ? false : true)
 
 const filteredKnowledges = computed<Knowledge[]>(() => {
   if (!showAll.value) {
