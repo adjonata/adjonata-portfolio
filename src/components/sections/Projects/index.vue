@@ -14,7 +14,7 @@ const props = defineProps<Props>()
 
 const { isMobile, isTablet } = useScreenSize()
 
-const showAll = ref(isMobile || isTablet ? false : true)
+const showAll = ref(isMobile.value || isTablet.value ? false : true)
 
 const filteredProjects = computed<Project[]>(() => {
   if (!showAll.value) {
