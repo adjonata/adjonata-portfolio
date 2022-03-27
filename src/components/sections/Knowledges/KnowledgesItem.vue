@@ -24,7 +24,7 @@ defineProps<Props>()
   border-radius: $items-radius;
   box-shadow: $shadow;
   padding: 25px 20px;
-  margin: 15px 30px 15px 0;
+  margin: 10px 10px 0px 0;
 
   display: flex;
   flex-direction: column;
