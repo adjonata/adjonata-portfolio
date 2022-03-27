@@ -9,8 +9,8 @@ export default VitePWA({
     display: 'browser',
     scope: '/',
     start_url: '/',
-    name: 'Alex Djonata - Porf\u00f3lio',
-    short_name: 'Alex Djonata - Porf\u00f3lio',
+    name: 'Alex Djonata - Portfólio',
+    short_name: 'Alex Djonata - Portfólio',
     description:
       'Desenvolvedor Front-End | Confira meus projetos e conhecimentos!',
     icons: [
