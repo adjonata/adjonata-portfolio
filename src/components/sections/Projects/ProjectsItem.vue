@@ -32,7 +32,7 @@ defineProps<Props>()
   background: $black-light;
   border-radius: $items-radius;
   box-shadow: $shadow;
-  margin: 15px 0;
+  margin: 10px 10px 0 0;
   padding: 25px 0;
 
   display: flex;
@@ -54,7 +54,7 @@ defineProps<Props>()
 
   @media (min-width: $fullhd) {
     width: 24%;
-    margin: 15px 0.5%;
+    margin: 15px 0.5% 0;
   }
 
   &__content {
