@@ -4,7 +4,7 @@ import { useScreenSize } from '@/hooks'
 
 import HeaderSections from './HeaderSections.vue'
 
-const { isMobile, clientWidth } = useScreenSize()
+const { isMobile, isLargerDesktop, clientWidth } = useScreenSize()
 
 const title = ref<string>('')
 const author = ref<string>('')
@@ -26,7 +26,7 @@ checkScreen()
 <template>
   <div class="header-content">
     <h1 class="header-content__title">
-      {{ title }}
+      {{ title }}<br v-if="!isMobile" />
       <span v-if="!isMobile">- {{ author }}</span>
     </h1>
     <HeaderSections />
@@ -50,7 +50,6 @@ checkScreen()
   }
 
   &__title {
-    width: 750px;
     max-width: 100%;
     font-size: 50px;
     letter-spacing: 1px;

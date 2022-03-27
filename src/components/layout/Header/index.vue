@@ -20,11 +20,12 @@ import HeaderContent from './HeaderContent.vue'
 
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
   @media (max-width: $fullhd) {
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     padding: 60px 0 0;
   }
 }
